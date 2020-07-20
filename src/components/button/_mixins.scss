@@ -1,0 +1,44 @@
+@mixin button-theme(
+  $bg-color,
+  $border-color,
+  $font-color,
+  $hover-bg-color,
+  $icon-color,
+  $active-color
+) {
+  background-color: $bg-color;
+  border-width: $button-outline-width;
+  border-style: solid;
+  border-color: $border-color;
+  color: $font-color;
+
+  &:hover {
+    background-color: $hover-bg-color;
+  }
+
+  &:focus {
+    border-color: $focus;
+    box-shadow: inset 0 0 0 $button-outline-width $focus,
+      inset 0 0 0 $button-border-width $ui-02;
+  }
+
+  &:disabled:hover,
+  &:disabled:focus,
+  &:hover.#{$prefix}--btn--disabled,
+  &:focus.#{$prefix}--btn--disabled {
+    color: $ui-04;
+    background-color: $disabled-02;
+    border-color: $disabled-02;
+    text-decoration: none;
+    box-shadow: none;
+  }
+
+  &:active {
+    background-color: $active-color;
+  }
+
+  .#{$prefix}--btn__icon,
+  .#{$prefix}--btn__icon path {
+    fill: $icon-color;
+  }
+}

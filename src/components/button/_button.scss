@@ -1,0 +1,72 @@
+@import "mixins";
+
+.bx--btn {
+  padding: 0.75rem 1rem;
+  border-radius: 2px;
+}
+
+.bx--btn--primary {
+  @include button-theme(
+    $interactive-01,
+    transparent,
+    $text-04,
+    $hover-primary,
+    currentColor,
+    $active-primary
+  );
+
+  &:hover {
+    color: $text-04;
+  }
+}
+
+.bx--btn--secondary {
+  @include button-theme(
+    $interactive-02,
+    transparent,
+    $text-04,
+    $hover-secondary,
+    currentColor,
+    $active-secondary
+  );
+
+  &:hover,
+  &:focus {
+    color: $text-04;
+  }
+}
+
+.bx--btn--tertiary {
+  @include button-theme(
+    transparent,
+    $interactive-03,
+    $interactive-03,
+    $hover-tertiary,
+    currentColor,
+    $active-tertiary
+  );
+
+  &:hover {
+    color: $text-04;
+  }
+
+  &:focus {
+    color: $inverse-01;
+    background-color: $interactive-03;
+  }
+
+  &:active {
+    border-color: transparent;
+  }
+
+  &:disabled,
+  &:hover:disabled,
+  &:focus:disabled,
+  &.#{$prefix}--btn--disabled,
+  &.#{$prefix}--btn--disabled:hover,
+  &.#{$prefix}--btn--disabled:focus {
+    background: transparent;
+    color: $disabled;
+    outline: none;
+  }
+}
